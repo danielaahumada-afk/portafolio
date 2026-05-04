@@ -3,13 +3,13 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
-  }, []);
+  const videoRef = useRef<HTMLVideoElement | null>(null
+useEffect(() => {
+  if (videoRef.current) {
+    videoRef.current.muted = true;
+    videoRef.current.play().catch(() => {});
+  }
+}, []);
 
   const images = ["/foto1.jpg", "/foto2.jpg", "/foto3.jpg", "/foto4.jpg"];
 
@@ -31,32 +31,19 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section id="inicio" className="h-screen relative flex items-center justify-center overflow-hidden">
-
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    preload="auto"
-    className="absolute inset-0 w-full h-full object-cover z-0"
-  >
-    <source
-      src="https://res.cloudinary.com/darvpownb/video/upload/Baja_Climbing.mp4"
-      type="video/mp4"
-    />
-  </video>
-
-  <motion.h1
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-    className="text-7xl font-bold z-10"
-  >
-    Daniela Nava
-  </motion.h1>
-
-</section>
+     <video
+  controls
+  autoPlay
+  muted
+  loop
+  playsInline
+  className="w-full"
+>
+  <source
+    src="https://res.cloudinary.com/darvpownb/video/upload/f_auto,q_auto,vc_auto/Baja_Climbing.mp4"
+    type="video/mp4"
+  />
+</video>
       {/* GALERÍA */}
       {images.map((img, i) => (
         <section
@@ -66,6 +53,7 @@ export default function Home() {
         >
 
           {/* VIDEO SOLO PRIMERA SECCIÓN */}
+          
           
           {/* IMÁGENES PARA LAS DEMÁS SECCIONES */}
           {i !== 0 && (
